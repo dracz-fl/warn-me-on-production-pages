@@ -4,8 +4,8 @@ if (hostname.includes("production") || hostname.includes("prod")) {
   // Create a red bar element
   const warningBar = document.createElement("div");
   warningBar.textContent = "WARNING: You are in a production environment!";
-  warningBar.style.position = "relative";
-  warningBar.style.top = "0";
+  warningBar.style.position = "fixed"; // Changed to fixed position
+  warningBar.style.bottom = "0"; // Moved to bottom instead of top
   warningBar.style.left = "0";
   warningBar.style.width = "100%";
   warningBar.style.backgroundColor = "red";
@@ -38,6 +38,6 @@ if (hostname.includes("production") || hostname.includes("prod")) {
   // Add the close button to the warning bar
   warningBar.appendChild(closeButton);
 
-  // Add the red bar to the page
+  // Add the red bar to the page (still using prepend since it's just adding to DOM)
   document.body.prepend(warningBar);
 }
